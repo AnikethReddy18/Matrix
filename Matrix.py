@@ -1,5 +1,5 @@
 class Matrix:
-    def __init__(self, r1, r2, r3):
+    def __init__(self, r1=None, r2=None, r3=None):
         self.r1 = r1
         self.r2 = r2
         self.r3 = r3
@@ -27,11 +27,9 @@ class Matrix:
     def make_matrix(self, numbers):
         """PUT IN A STRING OF NUMBER SEPARATED BY A COMMA AND NO SPACES """
         matrix_fr = numbers.split(',')
-        r1 = matrix_fr[:3]
-        r2 = matrix_fr[3:6]
-        r3 = matrix_fr[6:9]
-        new_matrix = Matrix(r1, r2, r3)
-        new_matrix.print_matrix()
+        self.r1 = matrix_fr[:3]
+        self.r2 = matrix_fr[3:6]
+        self.r3 = matrix_fr[6:9]
 
 
 class OperateMatrix:
