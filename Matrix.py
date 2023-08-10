@@ -24,7 +24,7 @@ class Matrix:
 
         return element
 
-    def make_matrix(self, numbers):
+    def construct_matrix(self, numbers):
         """PUT IN A STRING OF NUMBER SEPARATED BY A COMMA AND NO SPACES """
         matrix_fr = numbers.split(',')
         self.r1 = list(map(int, matrix_fr[:3]))
@@ -60,3 +60,25 @@ class OperateMatrix:
 
         new_matrix = Matrix(r1, r2, r3)
         return new_matrix
+
+    def mul_matrix(self):
+        m1 = self.m1
+        m2 = self.m2
+
+        r1 = [m1.r1[0] * m2.r1[0] + m1.r1[1] * m2.r2[0] + m1.r1[2] * m2.r3[0],
+              m1.r1[0] * m2.r1[1] + m1.r1[1] * m2.r2[1] + m1.r1[2] * m2.r3[1],
+              m1.r1[0] * m2.r1[2] + m1.r1[1] * m2.r2[2] + m1.r1[2] * m2.r3[2]]
+
+        r2 = [m1.r2[0] * m2.r1[0] + m1.r2[1] * m2.r2[0] + m1.r2[2] * m2.r3[0],
+              m1.r2[0] * m2.r1[1] + m1.r2[1] * m2.r2[1] + m1.r2[2] * m2.r3[1],
+              m1.r2[0] * m2.r1[2] + m1.r2[1] * m2.r2[2] + m1.r2[2] * m2.r3[2]]
+
+        r3 = [m1.r3[0] * m2.r1[0] + m1.r3[1] * m2.r2[0] + m1.r3[2] * m2.r3[0],
+              m1.r3[0] * m2.r1[1] + m1.r3[1] * m2.r2[1] + m1.r3[2] * m2.r3[1],
+              m1.r3[0] * m2.r1[2] + m1.r3[1] * m2.r2[2] + m1.r3[2] * m2.r3[2]]
+
+        return Matrix(r1,r2,r3)
+
+
+
+
