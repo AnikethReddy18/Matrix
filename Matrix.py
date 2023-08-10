@@ -27,10 +27,12 @@ class Matrix:
     def make_matrix(self, numbers):
         """PUT IN A STRING OF NUMBER SEPARATED BY A COMMA AND NO SPACES """
         matrix_fr = numbers.split(',')
-        self.r1 = matrix_fr[:3]
-        self.r2 = matrix_fr[3:6]
-        self.r3 = matrix_fr[6:9]
+        self.r1 = list(map(int, matrix_fr[:3]))
+        self.r2 = list(map(int, matrix_fr[3:6]))
+        self.r3 = list(map(int, matrix_fr[6:9]))
 
+        for element in self.r1:
+            int(element)
 
 class OperateMatrix:
     def __init__(self, matrix1, matrix2):
