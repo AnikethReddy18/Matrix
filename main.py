@@ -20,7 +20,7 @@ def construct_matrices():
     matrix1 = matri1
     matrix2 = matri2
 
-    show_matrix.config(text=f"{matrix1}and\n{matrix2} are your input matrices")
+    show_matrix.config(text=f"{matrix1}and{matrix2} are your input matrices")
 
     operation = OperateMatrix(matrix1, matrix2)
 
@@ -42,9 +42,12 @@ instructions = tk.Label(text="To make a matrix: Enter 9 numbers of your choice s
                              "and no space. They will be filled left to right starting from top to bottom")
 
 input1 = tk.Entry()
+input1.insert(0, "1,2,3,4,5,6,7,8,9")
 input2 = tk.Entry()
+input2.insert(0, "1,2,3,4,5,6,7,8,9")
+
 construct_matrix = tk.Button(text="CONSTRUCT MATRICES", command=construct_matrices)
-show_matrix = tk.Label()
+show_matrix = tk.Label(bg="blue")
 add_button = tk.Button(text="add", command=add)
 sub_button = tk.Button(text="subtract", command=sub)
 mul_button = tk.Button(text="multiply", command=mul)
@@ -54,7 +57,7 @@ instructions.grid(column=0,row=0)
 input1.grid(column=0, row=1, sticky="w")
 input2.grid(column=0, row=2, sticky="w")
 construct_matrix.grid(column=0, row=3, sticky="w")
-show_matrix.grid(column=1,row=1)
+show_matrix.grid(column=1,row=1, rowspan=3)
 add_button.grid(column=0, row=4, sticky="w")
 sub_button.grid(column=0, row=5, sticky="w")
 mul_button.grid(column=0, row=6, sticky="w")
