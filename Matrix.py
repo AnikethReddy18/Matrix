@@ -34,6 +34,10 @@ class Matrix:
         for element in self.r1:
             int(element)
 
+    def __str__(self):
+        string = f"{self.r1}\n{self.r2}\n{self.r3}\n"
+        return string
+
 class OperateMatrix:
     def __init__(self, matrix1, matrix2):
         self.m1 = matrix1
