@@ -26,8 +26,10 @@ def show_matrices():
 def add():
     result.config(text=operation.add_matrix())
 
+
 def sub():
     result.config(text=operation.sub_matrix())
+
 
 def mul():
     result.config(text=operation.mul_matrix())
@@ -35,7 +37,7 @@ def mul():
 
 window = tk.Tk()
 
-instructions = tk.Label(text="To make a matrix: Enter 9 numbers of your choice separated by a comma" \
+instructions = tk.Label(text="To make a matrix: Enter 9 numbers of your choice separated by a comma\n"
                              "and no space. They will be filled left to right starting from top to bottom")
 
 input1 = tk.Entry()

@@ -5,11 +5,13 @@ class Matrix:
         self.r3 = r3
 
     def print_matrix(self):
+        """PRINTS THE MATRIX"""
         matrix_rows = [self.r1, self.r2, self.r3]
         for row in matrix_rows:
             print(row)
 
     def element(self, column=1, row=1):
+        """RETURNS THE ELEMENT BASED ON COLUMN AND ROW INPUT"""
         r1 = self.r1
         r2 = self.r2
         r3 = self.r3
@@ -32,6 +34,7 @@ class Matrix:
         self.r3 = list(map(int, matrix_fr[6:9]))
 
     def __str__(self):
+        """RETURNS STRING FORM OF THE MATRIX WHEN INSTANCE OF CLASS IS CALLED"""
         string = f"{self.r1}\n{self.r2}\n{self.r3}\n"
         return string
 
@@ -42,6 +45,7 @@ class OperateMatrix:
         self.m2 = matrix2
 
     def add_matrix(self):
+        """RETURNS SUM OF GIVEN MATRICES"""
         m1 = self.m1
         m2 = self.m2
 
@@ -53,6 +57,7 @@ class OperateMatrix:
         return new_matrix
 
     def sub_matrix(self):
+        """RETURNS DIFFERENCE OF GIVEN MATRICES"""
         m1 = self.m1
         m2 = self.m2
 
@@ -64,6 +69,7 @@ class OperateMatrix:
         return new_matrix
 
     def mul_matrix(self):
+        """RETURNS PRODUCT OF GIVEN MATRICES"""
         m1 = self.m1
         m2 = self.m2
 
