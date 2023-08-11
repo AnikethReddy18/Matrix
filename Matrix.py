@@ -27,19 +27,17 @@ class Matrix:
     def construct_matrix(self, numbers):
         """PUT IN A STRING OF NUMBER SEPARATED BY A COMMA AND NO SPACES """
         matrix_fr = numbers.split(',')
-        self.r1 = list(map(int, matrix_fr[:3]))
+        self.r1 = [int(element) for element in matrix_fr[:3]]
         self.r2 = list(map(int, matrix_fr[3:6]))
         self.r3 = list(map(int, matrix_fr[6:9]))
-
-        for element in self.r1:
-            int(element)
 
     def __str__(self):
         string = f"{self.r1}\n{self.r2}\n{self.r3}\n"
         return string
 
+
 class OperateMatrix:
-    def __init__(self, matrix1, matrix2):
+    def __init__(self, matrix1=None, matrix2=None):
         self.m1 = matrix1
         self.m2 = matrix2
 
@@ -81,8 +79,4 @@ class OperateMatrix:
               m1.r3[0] * m2.r1[1] + m1.r3[1] * m2.r2[1] + m1.r3[2] * m2.r3[1],
               m1.r3[0] * m2.r1[2] + m1.r3[1] * m2.r2[2] + m1.r3[2] * m2.r3[2]]
 
-        return Matrix(r1,r2,r3)
-
-
-
-
+        return Matrix(r1, r2, r3)
