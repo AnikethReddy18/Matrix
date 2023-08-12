@@ -60,7 +60,6 @@ def sub():
         input2.delete(0, "end")
 
 
-
 def mul():
     try:
         result.config(text=operation.mul_matrix())
@@ -74,27 +73,49 @@ def mul():
 def show_dets():
     try:
         result.config(text=f"Determinant of first matrix is {matrix1.determinant()}\nDeterminant of second matrix is "
-                       f"{matrix2.determinant()}")
+                           f"{matrix2.determinant()}")
 
     except:
         tkinter.messagebox.showerror("Index Error", "Please Enter a Valid Input")
         input1.delete(0, "end")
         input2.delete(0, "end")
 
+
 def show_input_window1():
     input_window = tk.Toplevel()
 
+    def append_number(number):
+        current_text = input_label_var.get()
+        new_text = current_text + str(number)
+        input_label_var.set(new_text)
+
+    def send_matrix():
+        input = [number+"," for number in input_label_var.get()]
+        to_send = ""
+        for number in input:
+            to_send = to_send + number
+
+        to_send = to_send - ","
+        input1.insert(0, to_send)
+        input_window.destroy()
+
+    input_label_var = tk.StringVar()
+    input_label_var.set("")
+
+    matrix_display = tk.Label(input_window, textvariable=input_label_var)
+
     # Making Buttons
-    b1 = tk.Button(input_window, text="1", width=10, height=5)
-    b2 = tk.Button(input_window, text="2", width=10, height=5)
-    b3 = tk.Button(input_window, text="3", width=10, height=5)
-    b4 = tk.Button(input_window, text="4", width=10, height=5)
-    b5 = tk.Button(input_window, text="5", width=10, height=5)
-    b6 = tk.Button(input_window, text="6", width=10, height=5)
-    b7 = tk.Button(input_window, text="7", width=10, height=5)
-    b8 = tk.Button(input_window, text="8", width=10, height=5)
-    b9 = tk.Button(input_window, text="9", width=10, height=5)
-    b0 = tk.Button(input_window, text="0", width=10, height=5)
+    b1 = tk.Button(input_window, text="1", width=10, height=5, command=lambda: append_number(1))
+    b2 = tk.Button(input_window, text="2", width=10, height=5, command=lambda: append_number(2))
+    b3 = tk.Button(input_window, text="3", width=10, height=5, command=lambda: append_number(3))
+    b4 = tk.Button(input_window, text="4", width=10, height=5, command=lambda: append_number(4))
+    b5 = tk.Button(input_window, text="5", width=10, height=5, command=lambda: append_number(5))
+    b6 = tk.Button(input_window, text="6", width=10, height=5, command=lambda: append_number(6))
+    b7 = tk.Button(input_window, text="7", width=10, height=5, command=lambda: append_number(7))
+    b8 = tk.Button(input_window, text="8", width=10, height=5, command=lambda: append_number(8))
+    b9 = tk.Button(input_window, text="9", width=10, height=5, command=lambda: append_number(9))
+    b0 = tk.Button(input_window, text="0", width=10, height=5, command=lambda: append_number(0))
+    submit_buttom = tk.Button(input_window, text="Submit", command=send_matrix)
 
     # Displaying Button
     b1.grid(column=0, row=0, padx=5, pady=5)
@@ -107,14 +128,61 @@ def show_input_window1():
     b8.grid(column=1, row=2, padx=5, pady=5)
     b9.grid(column=2, row=2, padx=5, pady=5)
     b0.grid(column=1, row=3, padx=5, pady=5)
+    submit_buttom.grid(column=0, row=5, columnspan=3)
 
-
-
+    matrix_display.grid(column=0, row=4, columnspan=3)
 
 
 def show_input_window2():
     input_window = tk.Toplevel()
 
+    def append_number(number):
+        current_text = input_label_var.get()
+        new_text = current_text + str(number)
+        input_label_var.set(new_text)
+
+    def send_matrix():
+        input = [number + "," for number in input_label_var.get()]
+        to_send = ""
+        for number in input:
+            to_send = to_send + number
+
+        to_send = to_send - ","
+        input2.insert(0, to_send)
+        input_window.destroy()
+
+    input_label_var = tk.StringVar()
+    input_label_var.set("")
+
+    matrix_display = tk.Label(input_window, textvariable=input_label_var)
+
+    # Making Buttons
+    b1 = tk.Button(input_window, text="1", width=10, height=5, command=lambda: append_number(1))
+    b2 = tk.Button(input_window, text="2", width=10, height=5, command=lambda: append_number(2))
+    b3 = tk.Button(input_window, text="3", width=10, height=5, command=lambda: append_number(3))
+    b4 = tk.Button(input_window, text="4", width=10, height=5, command=lambda: append_number(4))
+    b5 = tk.Button(input_window, text="5", width=10, height=5, command=lambda: append_number(5))
+    b6 = tk.Button(input_window, text="6", width=10, height=5, command=lambda: append_number(6))
+    b7 = tk.Button(input_window, text="7", width=10, height=5, command=lambda: append_number(7))
+    b8 = tk.Button(input_window, text="8", width=10, height=5, command=lambda: append_number(8))
+    b9 = tk.Button(input_window, text="9", width=10, height=5, command=lambda: append_number(9))
+    b0 = tk.Button(input_window, text="0", width=10, height=5, command=lambda: append_number(0))
+    submit_buttom = tk.Button(input_window, text="Submit", command=send_matrix)
+
+    # Displaying Button
+    b1.grid(column=0, row=0, padx=5, pady=5)
+    b2.grid(column=1, row=0, padx=5, pady=5)
+    b3.grid(column=2, row=0, padx=5, pady=5)
+    b4.grid(column=0, row=1, padx=5, pady=5)
+    b5.grid(column=1, row=1, padx=5, pady=5)
+    b6.grid(column=2, row=1, padx=5, pady=5)
+    b7.grid(column=0, row=2, padx=5, pady=5)
+    b8.grid(column=1, row=2, padx=5, pady=5)
+    b9.grid(column=2, row=2, padx=5, pady=5)
+    b0.grid(column=1, row=3, padx=5, pady=5)
+    submit_buttom.grid(column=0, row=5, columnspan=3)
+
+    matrix_display.grid(column=0, row=4, columnspan=3)
 
 
 # Sample Matrices
@@ -152,15 +220,6 @@ det_button = tk.Button(text="Determinant", command=show_dets, width=10)
 
 # Showing the result
 result = tk.Label()
-
-
-
-
-
-
-
-
-
 
 # Display Sample Matrices
 sample1_m1_label.place(x=5, y=5)
