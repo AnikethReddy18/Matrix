@@ -1,3 +1,5 @@
+import tkinter.messagebox
+
 from Matrix import Matrix, OperateMatrix
 import tkinter as tk
 
@@ -19,16 +21,21 @@ def fill_sample1_m2():
 
 
 def construct_matrices():
-    global matrix1, matrix2, operation
+    try:
+        global matrix1, matrix2, operation
 
-    matri1 = Matrix()
-    matri1.construct_matrix(input1.get())
-    matri2 = Matrix()
-    matri2.construct_matrix(input2.get())
-    matrix1 = matri1
-    matrix2 = matri2
+        matri1 = Matrix()
+        matri1.construct_matrix(input1.get())
+        matri2 = Matrix()
+        matri2.construct_matrix(input2.get())
+        matrix1 = matri1
+        matrix2 = matri2
 
-    operation = OperateMatrix(matrix1, matrix2)
+        operation = OperateMatrix(matrix1, matrix2)
+
+    except ValueError:
+        print("Please enter a valid input")
+        tkinter.messagebox.showerror("Value Error", "Please Enter a Valid Input")
 
 
 def add():
