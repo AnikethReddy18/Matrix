@@ -81,6 +81,41 @@ def show_dets():
         input1.delete(0, "end")
         input2.delete(0, "end")
 
+def show_input_window1():
+    input_window = tk.Toplevel()
+
+    # Making Buttons
+    b1 = tk.Button(input_window, text="1", width=10, height=5)
+    b2 = tk.Button(input_window, text="2", width=10, height=5)
+    b3 = tk.Button(input_window, text="3", width=10, height=5)
+    b4 = tk.Button(input_window, text="4", width=10, height=5)
+    b5 = tk.Button(input_window, text="5", width=10, height=5)
+    b6 = tk.Button(input_window, text="6", width=10, height=5)
+    b7 = tk.Button(input_window, text="7", width=10, height=5)
+    b8 = tk.Button(input_window, text="8", width=10, height=5)
+    b9 = tk.Button(input_window, text="9", width=10, height=5)
+    b0 = tk.Button(input_window, text="0", width=10, height=5)
+
+    # Displaying Button
+    b1.grid(column=0, row=0, padx=5, pady=5)
+    b2.grid(column=1, row=0, padx=5, pady=5)
+    b3.grid(column=2, row=0, padx=5, pady=5)
+    b4.grid(column=0, row=1, padx=5, pady=5)
+    b5.grid(column=1, row=1, padx=5, pady=5)
+    b6.grid(column=2, row=1, padx=5, pady=5)
+    b7.grid(column=0, row=2, padx=5, pady=5)
+    b8.grid(column=1, row=2, padx=5, pady=5)
+    b9.grid(column=2, row=2, padx=5, pady=5)
+    b0.grid(column=1, row=3, padx=5, pady=5)
+
+
+
+
+
+def show_input_window2():
+    input_window = tk.Toplevel()
+
+
 
 # Sample Matrices
 sample1_m1_label = tk.Label(text="Samples for Matrix 1: ")
@@ -107,6 +142,8 @@ show_matrix2 = tk.Label(text="Default Matrix 2:\n "
  [7, 8, 9]""")
 
 # Result Buttons
+input_button1 = tk.Button(text="Input", command=show_input_window1, width=5)
+input_button2 = tk.Button(text="Input", command=show_input_window2, width=5)
 construct_matrix = tk.Button(text="CONSTRUCT MATRICES", command=construct_matrices)
 add_button = tk.Button(text="Add", command=add, width=10)
 sub_button = tk.Button(text="Subtract", command=sub, width=10)
@@ -144,7 +181,9 @@ show_matrix1.place(x=325, y=20)
 show_matrix2.place(x=450, y=20)
 
 # Result Buttons
-construct_matrix.place(x=140, y=105)
+input_button1.place(x=275, y=60)
+input_button2.place(x=275, y=85)
+construct_matrix.place(x=130, y=105)
 add_button.place(x=5, y=150)
 sub_button.place(x=5, y=180)
 mul_button.place(x=5, y=210)
