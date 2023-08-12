@@ -34,25 +34,51 @@ def construct_matrices():
         operation = OperateMatrix(matrix1, matrix2)
 
     except ValueError:
-        print("Please enter a valid input")
         tkinter.messagebox.showerror("Value Error", "Please Enter a Valid Input")
+        input1.delete(0, "end")
+        input2.delete(0, "end")
 
 
 def add():
-    result.config(text=operation.add_matrix())
+    try:
+        result.config(text=operation.add_matrix())
+
+    except:
+        tkinter.messagebox.showerror("Index Error", "Please Enter a Valid Input")
+        input1.delete(0, "end")
+        input2.delete(0, "end")
 
 
 def sub():
-    result.config(text=operation.sub_matrix())
+    try:
+        result.config(text=operation.sub_matrix())
+
+    except:
+        tkinter.messagebox.showerror("Index Error", "Please Enter a Valid Input")
+        input1.delete(0, "end")
+        input2.delete(0, "end")
+
 
 
 def mul():
-    result.config(text=operation.mul_matrix())
+    try:
+        result.config(text=operation.mul_matrix())
+
+    except:
+        tkinter.messagebox.showerror("Index Error", "Please Enter a Valid Input")
+        input1.delete(0, "end")
+        input2.delete(0, "end")
 
 
 def show_dets():
-    result.config(text=f"Determinant of first matrix is {matrix1.determinant()}\nDeterminant of second matrix is "
+    try:
+        result.config(text=f"Determinant of first matrix is {matrix1.determinant()}\nDeterminant of second matrix is "
                        f"{matrix2.determinant()}")
+
+    except:
+        tkinter.messagebox.showerror("Index Error", "Please Enter a Valid Input")
+        input1.delete(0, "end")
+        input2.delete(0, "end")
 
 
 # Sample Matrices
