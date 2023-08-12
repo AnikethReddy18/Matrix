@@ -6,6 +6,7 @@ import tkinter as tk
 window = tk.Tk()
 window.title("Matrix Calculator")
 window.geometry("600x400")
+window.iconphoto(False, tk.PhotoImage(file="icons/app_icon.png"))
 
 matrix1 = Matrix()
 matrix2 = Matrix()
@@ -34,7 +35,7 @@ def construct_matrices():
         operation = OperateMatrix(matrix1, matrix2)
 
     except ValueError:
-        tkinter.messagebox.showerror("Value Error", "Please Enter a Valid Input")
+        tkinter.messagebox.showerror("Value Error", "Please Enter a Valid Input or Construct")
         input1.delete(0, "end")
         input2.delete(0, "end")
 
@@ -44,7 +45,7 @@ def add():
         result.config(text=operation.add_matrix())
 
     except:
-        tkinter.messagebox.showerror("Index Error", "Please Enter a Valid Input")
+        tkinter.messagebox.showerror("Index Error", "Please Enter a Valid Input or Construct")
         input1.delete(0, "end")
         input2.delete(0, "end")
 
@@ -54,7 +55,7 @@ def sub():
         result.config(text=operation.sub_matrix())
 
     except:
-        tkinter.messagebox.showerror("Index Error", "Please Enter a Valid Input")
+        tkinter.messagebox.showerror("Index Error", "Please Enter a Valid Input or Construct")
         input1.delete(0, "end")
         input2.delete(0, "end")
 
@@ -65,7 +66,7 @@ def mul():
         result.config(text=operation.mul_matrix())
 
     except:
-        tkinter.messagebox.showerror("Index Error", "Please Enter a Valid Input")
+        tkinter.messagebox.showerror("Index Error", "Please Enter a Valid Input or Construct")
         input1.delete(0, "end")
         input2.delete(0, "end")
 
