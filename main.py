@@ -20,8 +20,6 @@ def construct_matrices():
     matrix1 = matri1
     matrix2 = matri2
 
-    #show_matrices.config(text=f"Your matrices will be displayed here:\n{matrix1}{matrix2} ")
-    print(matrix1)
     operation = OperateMatrix(matrix1, matrix2)
 
 
@@ -87,5 +85,6 @@ mul_button.place(x=5, y=210)
 
 # Show Result
 result.place(x=325, y=150)
+
 
 window.mainloop()

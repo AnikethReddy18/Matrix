@@ -3,6 +3,7 @@ class Matrix:
         self.r1 = r1
         self.r2 = r2
         self.r3 = r3
+        self.matrix = [self.r1, self.r2, self.r3]
 
     def print_matrix(self):
         """PRINTS THE MATRIX"""
@@ -32,6 +33,22 @@ class Matrix:
         self.r1 = [int(element) for element in matrix_fr[:3]]
         self.r2 = list(map(int, matrix_fr[3:6]))
         self.r3 = list(map(int, matrix_fr[6:9]))
+
+    def address(self):
+        """RETURNS ADDRESSS OF THE ELEMENT"""
+        pass
+
+    def determinant(self):
+        """RETURNS DETERMINANT OF THE MATRIX"""
+        r1 = self.r1
+        r2 = self.r2
+        r3 = self.r3
+
+        det = r1[0] * (r2[1] * r3[2] - r3[1] * r2[2]) \
+              - r1[1]*(r2[0] * r3[2] - r3[0] * r2[2]) \
+              + r1[2]*(r2[0] * r3[1] - r3[0] * r2[1])
+
+        return det
 
     def __str__(self):
         """RETURNS STRING FORM OF THE MATRIX WHEN INSTANCE OF CLASS IS CALLED"""
