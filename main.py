@@ -1,7 +1,7 @@
 from Matrix import Matrix, OperateMatrix
 import tkinter as tk
 
-window =tk.Tk()
+window = tk.Tk()
 window.title("Matrix Calculator")
 window.geometry("600x400")
 
@@ -20,8 +20,8 @@ def construct_matrices():
     matrix1 = matri1
     matrix2 = matri2
 
-    show_matrix.config(text=f"{matrix1}and{matrix2} are your input matrices")
-
+    #show_matrices.config(text=f"Your matrices will be displayed here:\n{matrix1}{matrix2} ")
+    print(matrix1)
     operation = OperateMatrix(matrix1, matrix2)
 
 
@@ -37,30 +37,55 @@ def mul():
     result.config(text=operation.mul_matrix())
 
 
-
-instructions = tk.Label(text="To make a matrix: Enter 9 numbers of your choice separated by a comma\n"
-                             "and no space. They will be filled left to right starting from top to bottom")
-
+# Inputs
+input1_label = tk.Label(text="Enter the first matrix: ")
 input1 = tk.Entry()
 input1.insert(0, "1,2,3,4,5,6,7,8,9")
+
+input2_label = tk.Label(text="Enter the second matrix: ")
 input2 = tk.Entry()
 input2.insert(0, "1,2,3,4,5,6,7,8,9")
 
+# Showing the matrices
+show_matrix1 = tk.Label(text="Default Matrix 1:\n "
+                             """[1, 2, 3]
+ [4, 5, 6]
+ [7, 8, 9]""")
+show_matrix2 = tk.Label(text="Default Matrix 2:\n "
+                             """[1, 2, 3]
+ [4, 5, 6]
+ [7, 8, 9]""")
+
+# Buttons
 construct_matrix = tk.Button(text="CONSTRUCT MATRICES", command=construct_matrices)
-show_matrix = tk.Label(bg="blue")
-add_button = tk.Button(text="add", command=add)
-sub_button = tk.Button(text="subtract", command=sub)
-mul_button = tk.Button(text="multiply", command=mul)
+add_button = tk.Button(text="Add", command=add, width=10)
+sub_button = tk.Button(text="Subtract", command=sub, width=10)
+mul_button = tk.Button(text="Multiply", command=mul, width=10)
+
+# Showing the result
 result = tk.Label()
 
-instructions.grid(column=0,row=0)
-input1.grid(column=0, row=1, sticky="w")
-input2.grid(column=0, row=2, sticky="w")
-construct_matrix.grid(column=0, row=3, sticky="w")
-show_matrix.grid(column=1,row=1, rowspan=3)
-add_button.grid(column=0, row=4, sticky="w")
-sub_button.grid(column=0, row=5, sticky="w")
-mul_button.grid(column=0, row=6, sticky="w")
-result.grid(column=1, row=4)
+
+
+
+# Display Inputs
+input1_label.place(x=5, y=40)
+input1.place(x=140, y=40)
+
+input2_label.place(x=5, y=65)
+input2.place(x=140, y=65)
+
+# Display Input Matrices
+show_matrix1.place(x=325, y=20)
+show_matrix2.place(x=450, y=20)
+
+# Buttons
+construct_matrix.place(x=140, y=85)
+add_button.place(x=5, y=150)
+sub_button.place(x=5, y=180)
+mul_button.place(x=5, y=210)
+
+# Show Result
+result.place(x=325, y=150)
 
 window.mainloop()
