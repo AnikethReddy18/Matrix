@@ -32,7 +32,10 @@ def construct_matrices():
         matrix1 = matri1
         matrix2 = matri2
 
+
         operation = OperateMatrix(matrix1, matrix2)
+        show_matrix1.config(text=f"Your Matrix1:\n{matrix1}")
+        show_matrix2.config(text=f"Your Matrix1:\n{matrix2}")
 
     except ValueError:
         tkinter.messagebox.showerror("Value Error", "Please Enter a Valid Input or Construct")
@@ -95,7 +98,7 @@ def show_input_window1():
         for number in input:
             to_send = to_send + number
 
-        to_send = to_send - ","
+        to_send = to_send[:-1]
         input1.insert(0, to_send)
         input_window.destroy()
 
@@ -147,7 +150,7 @@ def show_input_window2():
         for number in input:
             to_send = to_send + number
 
-        to_send = to_send - ","
+        to_send = to_send[:-1]
         input2.insert(0, to_send)
         input_window.destroy()
 
